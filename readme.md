@@ -51,15 +51,20 @@ To reproduce the analysis, follow these steps:
 1. Install dependencies:
    ```bash
    pip install pandas scikit-learn imbalanced-learn matplotlib
-Place credit_data.csv in the working directory.
-Run the provided Python script.
-View the outputs in the console and save them for reference.
-Notes
-Ensure the dataset is properly formatted and contains no missing values before running the script.
-Adjust random states in the script to ensure reproducibility.
-Experiment with additional models or metrics as needed to extend the analysis.
 
+### 2. Prepare the Dataset
 
+- **Place the `credit_data.csv` file in your working directory.** Ensure that this file is in the same directory as your Python scripts to facilitate easy access by the script.
 
+### 3. Run the Analysis
 
+- **Execute the provided Python script.** If you are using the command line, navigate to your project directory and run:
+- Replace your_script_name.py with the name of your script file.
 
+   ```bash
+      python your_script_name.py
+
+### 4. View the Outputs
+
+- Observe the outputs displayed in the console. These outputs will include the performance metrics of the models used.
+- Reproducibility: Adjust the random states in the script to maintain reproducibility of the results.
