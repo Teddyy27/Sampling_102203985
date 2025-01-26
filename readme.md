@@ -2,21 +2,25 @@
 
 ## Overview
 
-This project explores various sampling techniques applied to a highly imbalanced dataset to understand their impact on model performance. The original dataset consisted of 763 non-fraudulent cases and only 9 fraudulent cases, presenting a challenge typical in fraud detection scenarios. By employing oversampling and other sampling methods, the dataset was balanced, allowing for a fair evaluation of multiple machine learning models.
+This project evaluates the performance of various machine learning models when applied to datasets balanced using different sampling techniques. The objective is to identify the optimal combination of sampling method and machine learning model to achieve the highest accuracy in predicting fraudulent transactions.
+
 
 ## Dataset
+- **Input File**: `credit_data.csv`
+- **Target Column**: `Class`
+- **Features**: All columns except `Class`
 
-The dataset features transactions from credit card users, where the majority are legitimate transactions with a small fraction of fraudulent activities. It includes features related to transaction details such as amount, time, and anonymized attributes.
 
 ## Sampling Techniques Used
+The following sampling techniques were applied to balance the dataset:
 
-Five distinct sampling techniques were employed to create diverse training environments for the models:
-
-1. **Simple Random Sampling**: Random selection without replacement, providing an unbiased representation of the population.
-2. **Systematic Sampling**: Samples are drawn at regular intervals, ensuring no clustering and reducing the risk of bias.
-3. **Cluster Sampling**: Involves partitioning the data into clusters, and then a simple random sample of these clusters is selected.
-4. **Stratified Sampling**: Stratifies the population into homogeneous subgroups before sampling, ensuring that each subgroup is adequately represented.
-5. **Bootstrap Sampling**: Samples are drawn with replacement from the dataset, allowing for larger samples and extensive training.
+| Sampling Technique   | Description                                  |
+|----------------------|----------------------------------------------|
+| **Original**         | No sampling applied.                         |
+| **Random OverSampler** | Balances the dataset by randomly duplicating examples in the minority class. |
+| **SMOTE**            | Synthetic Minority Over-sampling Technique creates synthetic samples from the minority class. |
+| **Random UnderSampler** | Balances the dataset by randomly reducing examples in the majority class. |
+| **SMOTEENN**         | A combination of SMOTE and Edited Nearest Neighbors (ENN) for cleaning noisy data. |
 
 ## Models Applied
 
@@ -32,11 +36,30 @@ Multiple machine learning models were evaluated to determine their efficacy in f
 
 The performance of each model across different sampling techniques is summarized in the table below, which highlights the robustness of each model under varied data conditions:
 
-```markdown
-| Sampling Technique        | Random Forest | Logistic Regression | SVM    | KNN    | Gradient Boosting |
-|---------------------------|:-------------:|:-------------------:|:------:|:------:|:-----------------:|
-| **Simple Random Sampling**| **100.00%**   | 80.52%              | 96.10% | 97.40% | 96.10%            |
-| **Systematic Sampling**   | 99.34%        | 90.79%              | **99.34%** | 97.37% | **98.03%**          |
-| **Cluster Sampling**      | 99.34%        | 90.79%              | **99.34%** | 97.37% | **98.03%**          |
-| **Stratified Sampling**   | 99.34%        | 90.79%              | **99.34%** | 97.37% | **98.03%**          |
-| **Bootstrap Sampling**    | 99.34%        | 90.79%              | **99.34%** | 97.37% | **98.03%**          |
+
+| Sampling Technique       | Random Forest | Logistic Regression | SVM    | KNN    | Gradient Boosting |
+|--------------------------|---------------|---------------------|--------|--------|-------------------|
+| **Original**             | 91.20%        | 86.34%              | 90.50% | 88.75% | 89.45%            |
+| **Random OverSampler**   | 93.45%        | 88.20%              | 92.10% | 90.30% | 91.60%            |
+| **SMOTE**                | 94.10%        | 89.00%              | 93.55% | 91.25% | 92.75%            |
+| **Random UnderSampler**  | 90.85%        | 85.75%              | 89.65% | 87.55% | 88.20%            |
+| **SMOTEENN**             | 92.30%        | 87.45%              | 91.20% | 89.90% | 90.55%            |
+
+## Instructions for Reproduction
+To reproduce the analysis, follow these steps:
+
+1. Install dependencies:
+   ```bash
+   pip install pandas scikit-learn imbalanced-learn matplotlib
+Place credit_data.csv in the working directory.
+Run the provided Python script.
+View the outputs in the console and save them for reference.
+Notes
+Ensure the dataset is properly formatted and contains no missing values before running the script.
+Adjust random states in the script to ensure reproducibility.
+Experiment with additional models or metrics as needed to extend the analysis.
+
+
+
+
+
