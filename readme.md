@@ -1,5 +1,8 @@
 # Sampling Techniques and Model Accuracy Analysis
 
+![Heatmap of Model Accuracies](https://github.com/Teddyy27/Sampling_102203985/blob/main/path/to/heatmap.png)
+
+
 ## Overview
 
 This project evaluates the performance of various machine learning models when applied to datasets balanced using different sampling techniques. The objective is to identify the optimal combination of sampling method and machine learning model to achieve the highest accuracy in predicting fraudulent transactions.
